@@ -1,0 +1,18 @@
+# Dipendenze minime per l'interfaccia, che usa solo SynthSeg.
+# SynthSeg gira tramite 'mri_synthseg' di FreeSurfer, da installare a parte.
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+
+SimpleITK>=2.3
+pydicom>=2.4
+nibabel>=5.1
+antspyx>=0.4
+dcm2niix>=1.0.20220715
+
+scikit-image>=0.22
+scikit-learn>=1.3
+
+openpyxl>=3.1
+streamlit>=1.36

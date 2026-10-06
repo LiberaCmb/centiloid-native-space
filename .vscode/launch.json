@@ -1,0 +1,59 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "1 · Pipeline su un soggetto (FBB 2002, SynthSeg)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "scripts.run_pipeline",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "--mri", "${workspaceFolder}/../datasets/set di dati PIB da 50-70 minuti e FBB da 90-110 minuti (dati DICOM)/FBBproject_E-25_MR/2002_MR",
+        "--pet", "${workspaceFolder}/../datasets/set di dati PIB da 50-70 minuti e FBB da 90-110 minuti (dati DICOM)/FBBproject_E-25_FBB_90110/FBBproject_E-25_FBB_90110/2002_PET_FBB",
+        "--tracer", "FBB",
+        "--segmenter", "synthseg",
+        "--convert", "auto",
+        "--subject-id", "2002",
+        "--dataset", "fbb_project",
+        "--output", "data/prove/2002_synthseg"
+      ]
+    },
+    {
+      "name": "2 · Interfaccia Streamlit",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": ["run", "ui/app.py"]
+    },
+    {
+      "name": "3 · Confronto finale dei metodi (file Excel e coefficienti)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "scripts.analisi.build_final_comparison",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": []
+    },
+    {
+      "name": "4 · Ripetibilità dell'allineamento ANTs (soggetto 2002, 5 giri)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "scripts.analisi.diag_ants_determinismo",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": ["--soggetto", "2002", "--ripetizioni", "5"]
+    },
+    {
+      "name": "5 · Prove automatiche (pytest)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "args": ["tests", "-q"]
+    }
+  ]
+}

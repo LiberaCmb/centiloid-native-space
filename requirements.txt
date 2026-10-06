@@ -1,0 +1,35 @@
+# Dipendenze Python della pipeline (Python 3.10-3.12).
+#   pip install -r requirements.txt
+#
+# Gli strumenti di segmentazione esterni NON si installano con pip:
+#   SynthSeg e SAMSEG   FreeSurfer >= 7.3 (mri_synthseg, run_samseg)
+#   FastSurfer          repository Deep-MI/FastSurfer in un ambiente conda dedicato
+#   FSL FAST            FSL (eseguibile `fast`)
+# Vanno installati in Linux o in WSL2; vedi README.md.
+
+# Calcolo e tabelle
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+openpyxl>=3.1          # lettura e scrittura dei file .xlsx
+
+# Immagini mediche
+SimpleITK>=2.3
+pydicom>=2.4
+nibabel>=5.1
+antspyx>=0.4           # allineamento ANTs e registrazione dell'atlante
+dcm2niix>=1.0.20220715 # modulo 00; se manca si usa il lettore di SimpleITK
+
+# Segmentazione classica
+scikit-image>=0.22     # soglie di Otsu multilivello
+scikit-learn>=1.3      # k-means
+
+# Figure
+matplotlib>=3.7
+
+# Interfaccia grafica (ui/)
+streamlit>=1.36
+
+# Facoltative
+rich>=13.7             # log colorati
+pytest>=7.4            # prove in tests/

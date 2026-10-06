@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv-wsl/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Dati, risultati e immagini dei pazienti: non vanno nel repository
+data/
+*.nii
+*.nii.gz
+*.mgz
+*.dcm
+!resources/atlante/*.nii.gz
+
+# Licenza personale di FreeSurfer
+license.txt
+
+# Interfaccia: gruppi di regioni salvati dall'utente
+ui/label_groups.json
+
+# Sistema ed editor
+.DS_Store
+Thumbs.db
+.idea/
+*.log
